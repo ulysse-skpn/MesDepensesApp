@@ -4,7 +4,8 @@ import { Depenses } from "../Depenses";
 import DepensesActions from "./DepensesActions";
 
 
-export default function DepensesList() {
+export default function DepensesList() 
+{
 
     const [ expanseState ,      setExpanseState     ] = useState( Depenses );
     const [ reOrg_ , setReorg ] = useState(false);
@@ -85,108 +86,108 @@ export default function DepensesList() {
     const filterDepense = (cOrg) => {
         let newExpanseState;
         if(cOrg == "montant")
-            {
-                newExpanseState = expanseState.sort((a, b) => {return a.montant-b.montant});
-                setExpanseState(newExpanseState);
-                if(reOrg_)
-                    {
-                        setReorg(false);
-                    }
-                else{
-                    setReorg(true)
+        {
+            newExpanseState = expanseState.sort((a, b) => {return a.montant-b.montant});
+            setExpanseState(newExpanseState);
+            if(reOrg_)
+                {
+                    setReorg(false);
                 }
-                // console.log(expanseState.sort((a, b) => {return a.montant-b.montant}) );
+            else{
+                setReorg(true)
             }
+            // console.log(expanseState.sort((a, b) => {return a.montant-b.montant}) );
+        }
         if(cOrg == "lieu")
-            {
-                newExpanseState = expanseState.sort((a, b) => {
-                    let nameA=a.lieu.toLowerCase(), nameB=b.lieu.toLowerCase()
-                    if (nameA < nameB)
-                        return -1 
-                    if (nameA > nameB)
-                        return 1
-                    return 0
-                })
-                setExpanseState(newExpanseState);
-                if(reOrg_)
-                    {
-                        setReorg(false);
-                    }
-                else{
-                    setReorg(true)
+        {
+            newExpanseState = expanseState.sort((a, b) => {
+                let nameA=a.lieu.toLowerCase(), nameB=b.lieu.toLowerCase()
+                if (nameA < nameB)
+                    return -1 
+                if (nameA > nameB)
+                    return 1
+                return 0
+            })
+            setExpanseState(newExpanseState);
+            if(reOrg_)
+                {
+                    setReorg(false);
                 }
+            else{
+                setReorg(true)
             }
+        }
         if(cOrg == "commentaire")
-            {
-                newExpanseState = expanseState.sort((a, b) => {
-                    let nameA=a.commentaire.toLowerCase(), nameB=b.commentaire.toLowerCase()
-                    if (nameA < nameB)
-                        return -1 
-                    if (nameA > nameB)
-                        return 1
-                    return 0
-                })
-                setExpanseState(newExpanseState);
-                if(reOrg_)
-                    {
-                        setReorg(false);
-                    }
-                else{
-                    setReorg(true)
+        {
+            newExpanseState = expanseState.sort((a, b) => {
+                let nameA=a.commentaire.toLowerCase(), nameB=b.commentaire.toLowerCase()
+                if (nameA < nameB)
+                    return -1 
+                if (nameA > nameB)
+                    return 1
+                return 0
+            })
+            setExpanseState(newExpanseState);
+            if(reOrg_)
+                {
+                    setReorg(false);
                 }
+            else{
+                setReorg(true)
             }
+        }
         if(cOrg == "date")
-            {
-                newExpanseState = expanseState.sort((a, b) => { let dateA = new Date(a.date), dateB = new Date(b.date); return dateA-dateB});
-                setExpanseState(newExpanseState);
-                if(reOrg_)
-                    {
-                        setReorg(false);
-                    }
-                else{
-                    setReorg(true)
+        {
+            newExpanseState = expanseState.sort((a, b) => { let dateA = new Date(a.date), dateB = new Date(b.date); return dateA-dateB});
+            setExpanseState(newExpanseState);
+            if(reOrg_)
+                {
+                    setReorg(false);
                 }
+            else{
+                setReorg(true)
             }
+        }
     }
 
     if(isEdited)
-        {
-            edition =
-                <View>
-                    <Text>Date</Text>
-                    <TextInput style={styles.textInput} value={ dateState } onChangeText={ date => setDateState(date)} />
-                    <Text>Montant</Text>
-                    <TextInput style={styles.textInput} value={ montantState } onChangeText={ montant => setMontantState(montant) } />
-                    <Text>Lieu</Text>
-                    <TextInput style={styles.textInput} value={ lieuState } onChangeText={ lieu => setLieuState(lieu) } />
-                    <Text>Categorie</Text>
-                    <TextInput style={styles.textInput} value={ categorieState } onChangeText={ categorie => setCategorieState(categorie) } />
-                    <Text>Photo</Text>
-                    <TextInput style={styles.textInput} value={ photoState } onChangeText={ photo => setPhotoState(photo) } />
-                    <Text>Commentaire</Text>
-                    <TextInput style={styles.textInput} value={ commentaireState } onChangeText={ commentaire => setComentaireState(commentaire) } />
-                    <Button title ="Enregistrer modif" onPress={ editDepense }/>
-                </View>;
-        }
+    {
+        edition =
+            <View>
+                <Text>Date</Text>
+                <TextInput style={styles.textInput} value={ dateState } onChangeText={ date => setDateState(date)} />
+                <Text>Montant</Text>
+                <TextInput style={styles.textInput} value={ montantState } onChangeText={ montant => setMontantState(montant) } />
+                <Text>Lieu</Text>
+                <TextInput style={styles.textInput} value={ lieuState } onChangeText={ lieu => setLieuState(lieu) } />
+                <Text>Categorie</Text>
+                <TextInput style={styles.textInput} value={ categorieState } onChangeText={ categorie => setCategorieState(categorie) } />
+                <Text>Photo</Text>
+                <TextInput style={styles.textInput} value={ photoState } onChangeText={ photo => setPhotoState(photo) } />
+                <Text>Commentaire</Text>
+                <TextInput style={styles.textInput} value={ commentaireState } onChangeText={ commentaire => setComentaireState(commentaire) } />
+                <Button title ="Enregistrer modif" onPress={ editDepense }/>
+            </View>;
+    }
 
     if(form)
-        {
-            forSave =
-                <View>
-                    <Text>Date</Text>
-                    <TextInput style={styles.textInput} value={ dateState } onChangeText={ date => setDateState(date)} />
-                    <Text>Montant</Text>
-                    <TextInput style={styles.textInput} value={ montantState } onChangeText={ montant => setMontantState(montant) } />
-                    <Text>Lieu</Text>
-                    <TextInput style={styles.textInput} value={ lieuState } onChangeText={ lieu => setLieuState(lieu) } />
-                    <Text>Categorie</Text>
-                    <TextInput style={styles.textInput} value={ categorieState } onChangeText={ categorie => setCategorieState(categorie) } />
-                    <Text>Photo</Text>
-                    <TextInput style={styles.textInput} value={ photoState } onChangeText={ photo => setPhotoState(photo) } />
-                    <Text>Commentaire</Text>
-                    <TextInput style={styles.textInput} value={ commentaireState } onChangeText={ commentaire => setComentaireState(commentaire) } />
-                </View>;
-        }
+    {
+        forSave =
+            <View>
+                <Text>Date</Text>
+                <TextInput style={styles.textInput} value={ dateState } onChangeText={ date => setDateState(date)} />
+                <Text>Montant</Text>
+                <TextInput style={styles.textInput} value={ montantState } onChangeText={ montant => setMontantState(montant) } />
+                <Text>Lieu</Text>
+                <TextInput style={styles.textInput} value={ lieuState } onChangeText={ lieu => setLieuState(lieu) } />
+                <Text>Categorie</Text>
+                <TextInput style={styles.textInput} value={ categorieState } onChangeText={ categorie => setCategorieState(categorie) } />
+                <Text>Photo</Text>
+                <TextInput style={styles.textInput} value={ photoState } onChangeText={ photo => setPhotoState(photo) } />
+                <Text>Commentaire</Text>
+                <TextInput style={styles.textInput} value={ commentaireState } onChangeText={ commentaire => setComentaireState(commentaire) } />
+            </View>;
+    }
 
 
     let btn = expanseState

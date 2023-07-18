@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View , Text , Button } from 'react-native';
 
-export default function DepensesActions(props) {
+export default function DepensesActions(props) 
+{
     const {id , date, montant, lieu, categorie, photoFact, commentaire } = props.data;
 
     return(
